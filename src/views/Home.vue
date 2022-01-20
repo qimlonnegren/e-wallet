@@ -20,7 +20,4 @@ export default {
 section{
     background-color:brown;
 }
-/* h1{
-    font-weight: 700;
-} */
 </style>
