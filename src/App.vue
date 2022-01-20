@@ -11,7 +11,7 @@ export default {
 
 <style>
 #app {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: Source Sans Pro;
   text-align: center;
   color: black;
   margin-top: 50px;
