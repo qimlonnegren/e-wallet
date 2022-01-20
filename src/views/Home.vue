@@ -1,6 +1,7 @@
 <template>
   <div>
-      <section>Hello</section>
+      <h1>E-wallet</h1>
+      <h6>Active Card</h6>
       <Card/>
   </div>
 </template>
@@ -19,4 +20,7 @@ export default {
 section{
     background-color:brown;
 }
+/* h1{
+    font-weight: 700;
+} */
 </style>
