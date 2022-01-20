@@ -11,7 +11,6 @@ export default {
 
 <style>
 #app {
-  font-family: Source Sans Pro;
   text-align: center;
   color: black;
   margin-top: 50px;
