@@ -17,7 +17,5 @@ export default {
 </script>
 
 <style>
-section{
-    background-color:brown;
-}
+
 </style>
