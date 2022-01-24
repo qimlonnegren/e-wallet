@@ -1,6 +1,6 @@
 <template>
   <div>
-      <h1>Add A New Bank</h1>
+      <h1>Add A New Bank Card</h1>
       <h6>Active Card</h6>
       <Card/>
       <AddCardForm/>

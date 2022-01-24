@@ -25,9 +25,9 @@ export default {
   font-family: 'PT Mono', monospace;
   text-align: center;
   width: 414px;
-  height: 500px;
+  height: 1000px;
   margin: auto;
-  padding-top: 10px;
+  padding-top: 20px;
   text-transform: uppercase;
   background-color: palevioletred;
   display: flex;
@@ -38,6 +38,10 @@ h1, h6 {
 }
 
 h1{
-    font-weight: 700;
+  font-weight: 700;
+  margin: auto;
+  width: 200px;
+  line-height: 30px;
+  /* padding: 0 50px 0 50px; */
 }
 </style>

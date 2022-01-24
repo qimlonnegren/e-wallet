@@ -1,7 +1,7 @@
 <template>
   <div>
       <article class="card">
-          <img src="../assets/wifi_white.svg" alt="White wifi logo" class="wifi-img">
+          <img src="../assets/wifi.svg" alt="White wifi logo" class="wifi-img">
           <br>
           <img src="../assets/bitcoin.svg" alt="Bitcoin image" class="vendor-img">
           <img src="../assets/chip.svg" alt="Chip image" class="chip-img">
