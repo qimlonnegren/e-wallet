@@ -3,20 +3,21 @@
       <article class="card">
           <img src="../assets/wifi.svg" alt="White wifi logo" class="wifi-img">
           <br>
-          <img src="../assets/bitcoin.svg" alt="Bitcoin image" class="vendor-img">
+          <!-- <img src="../assets/bitcoin.svg" alt="Bitcoin image" class="vendor-img"> -->
+            <div class="vendor-img bitcoin"></div>
           <img src="../assets/chip.svg" alt="Chip image" class="chip-img">
-          <h2 class="cardNumber">xxxx xxxx xxxx xxxx</h2>
+          <h2 class="cardNumber">{{cardInfo.number}}</h2>
           <h3>Cardholder Name</h3>
-          <p>Firstname Lastname</p>
+          <p>{{cardInfo.name}}</p>
           <h3 class="rightInfo rightH3">Valid Thru</h3>
-          <p class="rightInfo rightP">mm/yy</p>
+          <p class="rightInfo rightP">{{cardInfo.month}}/{{cardInfo.year}}</p>
       </article>
   </div>
 </template>
 
 <script>
 export default {
-
+    props: ['cardInfo']
 }
 </script>
 
@@ -70,11 +71,27 @@ p{
 .rightInfo{
     position: absolute;
     right: 15px;
+    width: 54px;
 }
 .rightH3{
 bottom: 44px;
 }
 .rightP{
 bottom: 0px;
+}
+.cardNumber{
+height: 32px;
+}
+.bitcoin{
+background-image: url('../assets/bitcoin.svg');
+}
+.ninja-bank{
+    background-image: url('../assets/ninja.svg');
+}
+.block-chain{
+    background-image: url('../assets/blockchain.svg');
+}
+.evil-corp{
+    background-image: url('../assets/evil.svg');
 }
 </style>

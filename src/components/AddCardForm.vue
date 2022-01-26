@@ -1,13 +1,13 @@
 <template>
   <div class="formSection">
+    <Card v-bind:cardInfo="cardInfo" />
     <label for="card-number">Card Number</label>
-    <input v-model="inputCardNumbers" type="text" id="card-number" name="card-number" placeholder="xxxx xxxx xxxx xxxx"/>
-    <p>{{inputCardNumbers}}</p>
+    <input v-model="cardInfo.number" type="text" id="card-number" name="card-number" placeholder="xxxx xxxx xxxx xxxx"/>
     <label for="cardholder-name">Cardholder Name</label>
-    <input v-model="inputCardName" type="text" id="cardholder-name" name="cardholder-name" placeholder="Firstname Lastname"/>
+    <input v-model="cardInfo.name" type="text" id="cardholder-name" name="cardholder-name" placeholder="Firstname Lastname"/>
     
     <label for="card-month" class="card-month">Month</label>
-    <select v-model="inputCardMonth" name="card-month" id="card-month" class="card-month">
+    <select v-model="cardInfo.month" name="card-month" id="card-month" class="card-month">
     <i class="fas fa-chevron-down"></i>
       <option value="blank"></option>
       <option value="01">01</option>
@@ -25,7 +25,7 @@
     </select>
     
     <label for="card-year" class="card-year">Year</label>
-    <select v-model="inputCardYear" name="card-year" id="card-year" class="card-year">
+    <select v-model="cardInfo.year" name="card-year" id="card-year" class="card-year">
       <i class="fas fa-chevron-down"></i>
       <option value="blank"></option>
       <option value="21">21</option>
@@ -36,7 +36,7 @@
     </select>
     
     <label for="card-type">Bank</label>
-    <select v-model="inputCardBank" name="card-type" id="card-type">
+    <select v-model="cardInfo.bank" name="card-type" id="card-type">
       <i class="fas fa-chevron-down"></i>
       <option value=""></option>
       <option value="bitcoin-inc">Bitcoin Inc</option>
@@ -45,20 +45,30 @@
       <option value="ninjabank">Ninjabank</option>
     </select>
     
-    <button>Add Card</button>
+    <button @click="submit">Add Card</button>
     <!-- <p>hello</p> -->
   </div>
 </template>
 
 <script>
+import Card from './Card'
+
 export default {
+    components: {Card},
     data(){return{
-        inputCardNumbers: '',
-        inputCardName: '',
-        inputCardMonth: '',
-        inputCardYear: '',
-        inputCardBank: '',
+      cardInfo: {
+        number: '',
+        name: '',
+        month: '',
+        year: '',
+        bank: '',
+        }
     }}
+    methods: {
+     submit(){
+        
+   }
+  }
 };
 </script>
 
@@ -72,6 +82,7 @@ export default {
 label{
     font-size: 12px;
     opacity: 80%;
+    margin-top: 10px;
 }
 .card-month{
     width: 40%;
