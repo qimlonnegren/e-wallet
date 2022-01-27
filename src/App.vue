@@ -39,9 +39,11 @@ h1, h6 {
 
 h1{
   font-weight: 700;
-  margin: auto;
-  width: 200px;
+  margin: 1rem auto 1rem auto;
+  width: 162px;
   line-height: 30px;
-  /* padding: 0 50px 0 50px; */
+}
+h6{
+  margin: 0.5rem auto 0.3rem auto;
 }
 </style>
