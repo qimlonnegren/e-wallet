@@ -1,75 +1,87 @@
 <template>
-  <div class="formSection">
+  <div class="addCardView">
     <h1>Add A New Bank Card</h1>
     <h6>New Card</h6>
-    <Card v-bind:cardInfo="cardInfo" />
-    <label for="card-number">Card Number</label>
-    <input
-      v-model="cardInfo.number"
-      type="text"
-      id="card-number"
-      name="card-number"
-      placeholder="xxxx xxxx xxxx xxxx"
-    />
-    <label for="cardholder-name">Cardholder Name</label>
-    <input
-      v-model="cardInfo.name"
-      type="text"
-      id="cardholder-name"
-      name="cardholder-name"
-      placeholder="Firstname Lastname"
-    />
+    <Card v-bind:cardInfo="cardInfo"/>
+    <article class="addCardForm">
+      <span>
+        <label for="card-number">Card Number</label>
+        <input
+          v-model="cardInfo.number"
+          type="text"
+          id="card-number"
+          name="card-number"
+          placeholder="xxxx xxxx xxxx xxxx"
+        />
+      </span>
+      <span>
+        <label for="cardholder-name">Cardholder Name</label>
+        <input
+          v-model="cardInfo.name"
+          type="text"
+          id="cardholder-name"
+          name="cardholder-name"
+          placeholder="Firstname Lastname"
+        />
+      </span>
+      <span class="span-month">
+        <label for="card-month" class="card-month">Month</label>
+        <br />
+        <select
+          v-model="cardInfo.month"
+          name="card-month"
+          id="card-month"
+          class="card-month"
+        >
+          <i class="fas fa-chevron-down"></i>
+          <option value="blank"></option>
+          <option value="01">01</option>
+          <option value="02">02</option>
+          <option value="03">03</option>
+          <option value="04">04</option>
+          <option value="05">05</option>
+          <option value="06">06</option>
+          <option value="07">07</option>
+          <option value="08">08</option>
+          <option value="09">09</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+        </select>
+      </span>
+      <span class="span-year">
+        <label for="card-year" class="card-year">Year</label>
+        <br />
+        <select
+          v-model="cardInfo.year"
+          name="card-year"
+          id="card-year"
+          class="card-year"
+        >
+          <i class="fas fa-chevron-down"></i>
+          <option value="blank"></option>
+          <option value="21">21</option>
+          <option value="22">22</option>
+          <option value="23">23</option>
+          <option value="24">24</option>
+          <option value="25">25</option>
+        </select>
+      </span>
+      <span>
+        <label for="card-type">Bank</label>
+        <select v-model="cardInfo.bank" name="card-type" id="card-type">
+          <i class="fas fa-chevron-down"></i>
+          <option value=""></option>
+          <option value="bitcoin-inc">Bitcoin Inc</option>
+          <option value="blockchain-inc">Blockchain Inc</option>
+          <option value="evil-corp">Evil Corp</option>
+          <option value="ninjabank">Ninjabank</option>
+        </select>
+      </span>
 
-    <label for="card-month" class="card-month">Month</label>
-    <select
-      v-model="cardInfo.month"
-      name="card-month"
-      id="card-month"
-      class="card-month"
-    >
-      <i class="fas fa-chevron-down"></i>
-      <option value="blank"></option>
-      <option value="01">01</option>
-      <option value="02">02</option>
-      <option value="03">03</option>
-      <option value="04">04</option>
-      <option value="05">05</option>
-      <option value="06">06</option>
-      <option value="07">07</option>
-      <option value="08">08</option>
-      <option value="09">09</option>
-      <option value="10">10</option>
-      <option value="11">11</option>
-      <option value="12">12</option>
-    </select>
-
-    <label for="card-year" class="card-year">Year</label>
-    <select
-      v-model="cardInfo.year"
-      name="card-year"
-      id="card-year"
-      class="card-year"
-    >
-      <i class="fas fa-chevron-down"></i>
-      <option value="blank"></option>
-      <option value="21">21</option>
-      <option value="22">22</option>
-      <option value="23">23</option>
-      <option value="24">24</option>
-      <option value="25">25</option>
-    </select>
-
-    <label for="card-type">Bank</label>
-    <select v-model="cardInfo.bank" name="card-type" id="card-type">
-      <i class="fas fa-chevron-down"></i>
-      <option value=""></option>
-      <option value="bitcoin-inc">Bitcoin Inc</option>
-      <option value="blockchain-inc">Blockchain Inc</option>
-      <option value="evil-corp">Evil Corp</option>
-      <option value="ninjabank">Ninjabank</option>
-    </select>
-
-    <button @click="submit">Add Card</button>
+      <button @click="submit">Add Card</button>
+      <!-- <input id="submit" type="submit" value="Add Card"/> --> 
+    </article>
   </div>
 </template>
 
@@ -91,43 +103,62 @@ export default {
   },
   methods: {
     submit() {
-      this.$emit("submitCard");
+      this.$emit("submitCard", this.cardInfo);
+      this.$emit("homeView");
     },
   },
 };
 </script>
 
 <style>
-.formSection {
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-  flex-flow: column wrap;
+.addCardView {
   width: 382px;
+}
+.addCardForm {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto;
+  justify-content: space-between;
+  column-gap: 10px;
+  row-gap: 10px;
 }
 label {
   font-size: 12px;
   opacity: 80%;
   margin-top: 10px;
 }
-.card-month {
-  width: 40%;
+span {
+  grid-column: span 2;
+  text-align: left;
 }
-.card-year {
-  width: 40%;
+.span-month {
+  grid-column: span 1;
 }
-input,
-button {
-  width: 382px;
-  height: 56px;
-}
-select {
-  height: 56px;
+.span-year {
+  grid-column: span 1;
 }
 select,
-input,
-button {
+button,
+input {
+  height: 56px;
+  width: 100%;
   border: 1px solid rgba(0, 0, 0, 0.8);
   border-radius: 8px;
 }
+input {
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  border-radius: 8px;
+  width: 98.5%;
+}
+button {
+  grid-column: span 2;
+  background-color: black;
+  color: white;
+  font-weight: 700;
+  font-size: large;
+  text-transform: uppercase;
+  height: 65px;
+  margin-top: 30px;
+}
 </style>
+

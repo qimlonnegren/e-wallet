@@ -6,9 +6,11 @@
           <!-- <img src="../assets/bitcoin.svg" alt="Bitcoin image" class="vendor-img"> -->
             <div class="vendor-img bitcoin"></div>
           <img src="../assets/chip.svg" alt="Chip image" class="chip-img">
-          <h2 class="cardNumber">{{cardInfo.number}}</h2>
+          <h2 v-if="cardInfo.number == 0" class="cardNumber">xxxx xxxx xxxx xxxx</h2>
+          <h2 v-else class="cardNumber">{{cardInfo.number}}</h2>
           <h3>Cardholder Name</h3>
-          <p>{{cardInfo.name}}</p>
+          <p v-if="cardInfo.name == 0">Firstname Lastname</p>
+          <p v-else>{{cardInfo.name}}</p>
           <h3 class="rightInfo rightH3">Valid Thru</h3>
           <p class="rightInfo rightP">{{cardInfo.month}}/{{cardInfo.year}}</p>
       </article>
@@ -71,27 +73,31 @@ p{
 .rightInfo{
     position: absolute;
     right: 15px;
-    width: 54px;
 }
 .rightH3{
 bottom: 44px;
 }
 .rightP{
 bottom: 0px;
+width: 54px;
 }
 .cardNumber{
 height: 32px;
 }
 .bitcoin{
 background-image: url('../assets/bitcoin.svg');
+background-color: #FFAE34;
 }
 .ninja-bank{
     background-image: url('../assets/ninja.svg');
+    background-color: black;
 }
 .block-chain{
     background-image: url('../assets/blockchain.svg');
+    background-color: purple;
 }
 .evil-corp{
     background-image: url('../assets/evil.svg');
+    background-color: red;
 }
 </style>
