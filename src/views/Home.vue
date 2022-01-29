@@ -11,11 +11,9 @@
 import Card from '../components/Card'
 export default {
     components: {Card},
-    props: {
-
-    },
+    props: ['cards'],
     data(){return{
-      activeCard: {},
+      activeCard: this.cards[0]
     }},
     methods: {
       AddCardView(){

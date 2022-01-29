@@ -1,8 +1,9 @@
 <template>
 <div>
     <ul>
-        <li>
-            hello
+        <li v-for="card in this.cards"
+        :card="card"
+        :key="card.number">
         </li>
     </ul>
 </div>
@@ -12,7 +13,7 @@
 <script>
 export default {
     data(){return{
-        
+        cards: {'Hello': 'Hello'},
     }}
 }
 </script>

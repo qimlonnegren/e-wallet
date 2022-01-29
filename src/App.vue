@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Home @AddCardView="homeView = false" v-if="homeView" />
+    <Home @AddCardView="homeView = false" v-if="homeView" v-bind:cards="cards" />
     <AddCard @homeView="homeView = true" @submitCard="reciveCard" v-else />
     <CardList v-if="homeView"/>
     <p>{{cards}}</p>
@@ -22,9 +22,10 @@ export default {
   }},
   methods: {
       reciveCard(a){
-      console.log(a)
-      console.log('Helooo')
-      this.cards.push(a)
+        console.log(a)
+        console.log('Helooo')
+        this.cards.push(a)
+        console.log(this.cards)
       },
    }
 };

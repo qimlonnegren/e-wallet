@@ -2,12 +2,12 @@
   <div class="addCardView">
     <h1>Add A New Bank Card</h1>
     <h6>New Card</h6>
-    <Card v-bind:cardInfo="cardInfo"/>
+    <Card v-bind:cardInfo="newCard"/>
     <article class="addCardForm">
       <span>
         <label for="card-number">Card Number</label>
         <input
-          v-model="cardInfo.number"
+          v-model="newCard.number"
           type="text"
           id="card-number"
           name="card-number"
@@ -17,7 +17,7 @@
       <span>
         <label for="cardholder-name">Cardholder Name</label>
         <input
-          v-model="cardInfo.name"
+          v-model="newCard.name"
           type="text"
           id="cardholder-name"
           name="cardholder-name"
@@ -28,7 +28,7 @@
         <label for="card-month" class="card-month">Month</label>
         <br />
         <select
-          v-model="cardInfo.month"
+          v-model="newCard.month"
           name="card-month"
           id="card-month"
           class="card-month"
@@ -53,7 +53,7 @@
         <label for="card-year" class="card-year">Year</label>
         <br />
         <select
-          v-model="cardInfo.year"
+          v-model="newCard.year"
           name="card-year"
           id="card-year"
           class="card-year"
@@ -69,7 +69,7 @@
       </span>
       <span>
         <label for="card-type">Bank</label>
-        <select v-model="cardInfo.bank" name="card-type" id="card-type">
+        <select v-model="newCard.bank" name="card-type" id="card-type">
           <i class="fas fa-chevron-down"></i>
           <option value=""></option>
           <option value="bitcoin-inc">Bitcoin Inc</option>
@@ -92,7 +92,7 @@ export default {
   components: { Card },
   data() {
     return {
-      cardInfo: {
+      newCard: {
         number: "",
         name: "",
         month: "",
@@ -103,7 +103,7 @@ export default {
   },
   methods: {
     submit() {
-      this.$emit("submitCard", this.cardInfo);
+      this.$emit("submitCard", this.newCard);
       this.$emit("homeView");
     },
   },
