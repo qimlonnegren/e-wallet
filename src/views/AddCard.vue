@@ -7,7 +7,7 @@
       <span>
         <label for="card-number">Card Number</label>
         <input
-          v-model="newCard.number"
+          v-model="newCard.cardNumber"
           type="text"
           id="card-number"
           name="card-number"
@@ -93,7 +93,7 @@ export default {
   data() {
     return {
       newCard: {
-        number: "",
+        cardNumber: "",
         name: "",
         month: "",
         year: "",
@@ -113,6 +113,7 @@ export default {
 <style>
 .addCardView {
   width: 382px;
+  padding-bottom: 40px;
 }
 .addCardForm {
   display: grid;

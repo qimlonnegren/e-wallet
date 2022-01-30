@@ -6,8 +6,8 @@
           <!-- <img src="../assets/bitcoin.svg" alt="Bitcoin image" class="vendor-img"> -->
             <div class="vendor-img bitcoin"></div>
           <img src="../assets/chip.svg" alt="Chip image" class="chip-img">
-          <h2 v-if="cardInfo.number == 0" class="cardNumber">xxxx xxxx xxxx xxxx</h2>
-          <h2 v-else class="cardNumber">{{cardInfo.number}}</h2>
+          <h2 v-if="cardInfo.cardNumber == 0" class="cardNumber">xxxx xxxx xxxx xxxx</h2>
+          <h2 v-else class="cardNumber">{{cardInfo.cardNumber}}</h2>
           <h3>Cardholder Name</h3>
           <p v-if="cardInfo.name == 0">Firstname Lastname</p>
           <p v-else>{{cardInfo.name}}</p>

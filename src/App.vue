@@ -2,19 +2,20 @@
   <div id="app">
     <Home @AddCardView="homeView = false" v-if="homeView" v-bind:cards="cards" />
     <AddCard @homeView="homeView = true" @submitCard="reciveCard" v-else />
-    <CardList v-if="homeView"/>
-    <p>{{cards}}</p>
+    <!-- <CardList v-if="homeView"/> -->
+    <!-- <p>{{cards}}</p> -->
   </div>
 </template>
 
 <script>
 import Home from './views/Home'
 import AddCard from './views/AddCard'
-import CardList from './components/CardList'
+// import CardList from './components/CardList'
 
 
 export default {
-  components: {Home, AddCard, CardList},
+  components: {Home, AddCard},
+  //  CardList
   data(){return{
     homeView: true,
     
@@ -22,8 +23,6 @@ export default {
   }},
   methods: {
       reciveCard(a){
-        console.log(a)
-        console.log('Helooo')
         this.cards.push(a)
         console.log(this.cards)
       },
@@ -62,5 +61,8 @@ h1 {
 }
 h6 {
   margin: 0.5rem auto 0.3rem auto;
+}
+button{
+  width: 380px;
 }
 </style>
