@@ -4,31 +4,35 @@
       <img src="../assets/wifi.svg" alt="White wifi logo" class="wifi-img" />
       <br />
       <!-- <img src="../assets/bitcoin.svg" alt="Bitcoin image" class="vendor-img"> -->
-      <div class="vendor-img bitcoin-logo"></div>
+      <div v-if="cardInfo.bank == 'bitcoin-card'" class="vendor-img bitcoin-logo"></div>
+      <div v-if="cardInfo.bank == 'block-chain-card'" class="vendor-img block-chain-logo"></div>
+      <div v-if="cardInfo.bank == 'evil-corp-card'" class="vendor-img evil-corp-logo"></div>
+      <div v-if="cardInfo.bank == 'ninja-bank-card'" class="vendor-img ninja-bank-logo"></div>
+
       <img src="../assets/chip.svg" alt="Chip image" class="chip-img" />
       <h2 v-if="cardInfo.cardNumber == 0"
       class="cardNumber"
-      :class="'' || bitcoin-card ? 'dark-text' : 'light-text'"
+      :class="cardInfo.bank == '' || 'bitcoin-card' ? 'dark-text' : 'light-text'"
       >
         xxxx xxxx xxxx xxxx
       </h2>
       <h2 v-else class="cardNumber"
-      :class="'' || bitcoin-card ? 'dark-text' : 'light-text'"
+      :class="cardInfo.bank == '' || 'bitcoin-card' ? 'dark-text' : 'light-text'"
       >{{ displayCardNumber }}</h2>
       <h3
-      :class="'' || bitcoin-card ? 'dark-text' : 'light-text'"
+      :class="cardInfo.bank == '' || 'bitcoin-card' ? 'dark-text' : 'light-text'"
       >Cardholder Name</h3>
       <p v-if="cardInfo.name == 0"
-      :class="'' || bitcoin-card ? 'dark-text' : 'light-text'"
+      :class="cardInfo.bank == '' || 'bitcoin-card' ? 'dark-text' : 'light-text'"
       >Firstname Lastname</p>
       <p v-else
-      :class="'' || bitcoin-card ? 'dark-text' : 'light-text'"
+      :class="cardInfo.bank == '' || 'bitcoin-card' ? 'dark-text' : 'light-text'"
       >{{ cardInfo.name }}</p>
       <h3 class="rightInfo rightH3"
-      :class="'' || bitcoin-card ? 'dark-text' : 'light-text'"
+      :class="cardInfo.bank == '' || 'bitcoin-card' ? 'dark-text' : 'light-text'"
       >Valid Thru</h3>
       <p class="rightInfo rightP"
-      :class="'' || bitcoin-card ? 'dark-text' : 'light-text'"
+      :class="cardInfo.bank == '' || 'bitcoin-card' ? 'dark-text' : 'light-text'"
       >{{ cardInfo.month }}/{{ cardInfo.year }}</p>
     </article>
   </div>
@@ -68,7 +72,7 @@ export default {
 .dark-text{
   background-color: #000000;
   color: transparent;
-  text-shadow: 0px 2px 3px rgba(255, 255, 255, 0.5);
+  text-shadow: 0px 1px 1px rgba(168, 168, 168, 0.5);
   -webkit-background-clip: text;
   -moz-background-clip: text;
   background-clip: text;
@@ -91,11 +95,11 @@ export default {
   background-color: #222222;
 }
 .block-chain-card {
-  background: linear-gradient(60deg, #8b58f9 78%, rgba(255, 255, 255, 0.15));
+  background: linear-gradient(60deg, #8b58f9 78%, rgba(0, 0, 0, 0.15));
   background-color: #8b58f9;
 }
 .evil-corp-card {
-  background: linear-gradient(60deg, #f33355 78%, rgba(255, 255, 255, 0.15));
+  background: linear-gradient(60deg, #f33355 78%, rgba(0, 0, 0, 0.15));
   background-color: #f33355;
 }
 .bitcoin-logo {
@@ -103,15 +107,12 @@ export default {
 }
 .ninja-bank-logo {
   background-image: url("../assets/ninja.svg");
-  background-color: black;
 }
 .block-chain-logo {
   background-image: url("../assets/blockchain.svg");
-  background-color: purple;
 }
 .evil-corp-logo {
   background-image: url("../assets/evil.svg");
-  background-color: red;
 }
 
 h2 {
