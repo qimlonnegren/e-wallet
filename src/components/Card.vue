@@ -6,15 +6,30 @@
       <!-- <img src="../assets/bitcoin.svg" alt="Bitcoin image" class="vendor-img"> -->
       <div class="vendor-img bitcoin-logo"></div>
       <img src="../assets/chip.svg" alt="Chip image" class="chip-img" />
-      <h2 v-if="cardInfo.cardNumber == 0" class="cardNumber">
+      <h2 v-if="cardInfo.cardNumber == 0"
+      class="cardNumber"
+      :class="'' || bitcoin-card ? 'dark-text' : 'light-text'"
+      >
         xxxx xxxx xxxx xxxx
       </h2>
-      <h2 v-else class="cardNumber">{{ displayCardNumber }}</h2>
-      <h3>Cardholder Name</h3>
-      <p v-if="cardInfo.name == 0">Firstname Lastname</p>
-      <p v-else>{{ cardInfo.name }}</p>
-      <h3 class="rightInfo rightH3">Valid Thru</h3>
-      <p class="rightInfo rightP">{{ cardInfo.month }}/{{ cardInfo.year }}</p>
+      <h2 v-else class="cardNumber"
+      :class="'' || bitcoin-card ? 'dark-text' : 'light-text'"
+      >{{ displayCardNumber }}</h2>
+      <h3
+      :class="'' || bitcoin-card ? 'dark-text' : 'light-text'"
+      >Cardholder Name</h3>
+      <p v-if="cardInfo.name == 0"
+      :class="'' || bitcoin-card ? 'dark-text' : 'light-text'"
+      >Firstname Lastname</p>
+      <p v-else
+      :class="'' || bitcoin-card ? 'dark-text' : 'light-text'"
+      >{{ cardInfo.name }}</p>
+      <h3 class="rightInfo rightH3"
+      :class="'' || bitcoin-card ? 'dark-text' : 'light-text'"
+      >Valid Thru</h3>
+      <p class="rightInfo rightP"
+      :class="'' || bitcoin-card ? 'dark-text' : 'light-text'"
+      >{{ cardInfo.month }}/{{ cardInfo.year }}</p>
     </article>
   </div>
 </template>
@@ -50,7 +65,22 @@ export default {
   filter: drop-shadow(0 0 16px rgba(0, 0, 0, 0.08));
 }
 
-
+.dark-text{
+  background-color: #000000;
+  color: transparent;
+  text-shadow: 0px 2px 3px rgba(255, 255, 255, 0.5);
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+}
+.light-text{
+  background-color: #ffffff;
+  color: transparent;
+  text-shadow: 0px 2px 3px rgba(255, 255, 255, 0.5);
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+}
 
 .bitcoin-card {
   background: linear-gradient(60deg, #ffae34 78%, rgba(255, 255, 255, 0.15));
