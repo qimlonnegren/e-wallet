@@ -74,10 +74,10 @@
         <select v-model="newCard.bank" name="card-type" id="card-type">
           <i class="fas fa-chevron-down"></i>
           <option value=""></option>
-          <option value="bitcoin-inc">Bitcoin Inc</option>
-          <option value="blockchain-inc">Blockchain Inc</option>
-          <option value="evil-corp">Evil Corp</option>
-          <option value="ninjabank">Ninjabank</option>
+          <option value="bitcoin-card">Bitcoin Inc</option>
+          <option value="block-chain-card">Blockchain Inc</option>
+          <option value="evil-corp-card">Evil Corp</option>
+          <option value="ninja-bank-card">Ninjabank</option>
         </select>
       </span>
 

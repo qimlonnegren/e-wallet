@@ -1,10 +1,10 @@
 <template>
   <div>
-    <article class="card">
+    <article class="card" :class="cardInfo.bank">
       <img src="../assets/wifi.svg" alt="White wifi logo" class="wifi-img" />
       <br />
       <!-- <img src="../assets/bitcoin.svg" alt="Bitcoin image" class="vendor-img"> -->
-      <div class="vendor-img bitcoin"></div>
+      <div class="vendor-img bitcoin-logo"></div>
       <img src="../assets/chip.svg" alt="Chip image" class="chip-img" />
       <h2 v-if="cardInfo.cardNumber == 0" class="cardNumber">
         xxxx xxxx xxxx xxxx
@@ -21,33 +21,69 @@
 
 <script>
 export default {
-    props: ['cardInfo'],
-    computed: {
-        displayCardNumber(){
-            let numbers = ""
-            for (let i = 0; i < this.cardInfo.cardNumber.length; i++){ 
-                numbers += this.cardInfo.cardNumber[i]
-                if (i % 4 == 3) {
-                    numbers += " "
-                }
-            }     
-            return numbers
+  props: ["cardInfo"],
+  computed: {
+    displayCardNumber() {
+      let numbers = "";
+      for (let i = 0; i < this.cardInfo.cardNumber.length; i++) {
+        numbers += this.cardInfo.cardNumber[i];
+        if (i % 4 == 3) {
+          numbers += " ";
         }
-    }
-}
+      }
+      return numbers;
+    },
+  },
+};
 </script>
 
 <style>
 .card {
   width: 352px;
-  height: 201px;
+  height: 211px;
   border: 0px;
   border-radius: 8px;
   background-color: #d0d0d0;
   padding: 15px;
   position: relative;
   text-align: left;
+  filter: drop-shadow(0 0 16px rgba(0, 0, 0, 0.08));
 }
+
+
+
+.bitcoin-card {
+  background: linear-gradient(60deg, #ffae34 78%, rgba(255, 255, 255, 0.15));
+  background-color: #ffae34;
+}
+.ninja-bank-card {
+  background: linear-gradient(60deg, #222222 78%, rgba(255, 255, 255, 0.15));
+  background-color: #222222;
+}
+.block-chain-card {
+  background: linear-gradient(60deg, #8b58f9 78%, rgba(255, 255, 255, 0.15));
+  background-color: #8b58f9;
+}
+.evil-corp-card {
+  background: linear-gradient(60deg, #f33355 78%, rgba(255, 255, 255, 0.15));
+  background-color: #f33355;
+}
+.bitcoin-logo {
+  background-image: url("../assets/bitcoin.svg");
+}
+.ninja-bank-logo {
+  background-image: url("../assets/ninja.svg");
+  background-color: black;
+}
+.block-chain-logo {
+  background-image: url("../assets/blockchain.svg");
+  background-color: purple;
+}
+.evil-corp-logo {
+  background-image: url("../assets/evil.svg");
+  background-color: red;
+}
+
 h2 {
   font-size: 29px;
   margin: 10px 0 25px 0;
@@ -97,21 +133,5 @@ p {
 }
 .cardNumber {
   height: 32px;
-}
-.bitcoin {
-  background-image: url("../assets/bitcoin.svg");
-  background-color: #ffae34;
-}
-.ninja-bank {
-  background-image: url("../assets/ninja.svg");
-  background-color: black;
-}
-.block-chain {
-  background-image: url("../assets/blockchain.svg");
-  background-color: purple;
-}
-.evil-corp {
-  background-image: url("../assets/evil.svg");
-  background-color: red;
 }
 </style>
