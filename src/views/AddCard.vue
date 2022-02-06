@@ -11,6 +11,7 @@
           type="text"
           id="card-number"
           name="card-number"
+          maxlength="16"
           placeholder="xxxx xxxx xxxx xxxx"
         />
       </span>
@@ -21,6 +22,7 @@
           type="text"
           id="cardholder-name"
           name="cardholder-name"
+          maxlength="20"
           placeholder="Firstname Lastname"
         />
       </span>
