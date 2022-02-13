@@ -71,7 +71,7 @@
       </span>
       <span>
         <label for="card-type">Bank</label>
-        <select v-model="newCard.bank" name="card-type" id="card-type">
+        <select v-model="newCard.bank" name="card-type" id="card-type" required>
           <i class="fas fa-chevron-down"></i>
           <option value=""></option>
           <option value="bitcoin-card">Bitcoin Inc</option>
@@ -162,6 +162,8 @@ button {
   text-transform: uppercase;
   height: 65px;
   margin-top: 30px;
+  cursor: pointer; 
 }
+
 </style>
 

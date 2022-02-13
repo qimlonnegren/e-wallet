@@ -12,27 +12,20 @@
       <img src="../assets/chip.svg" alt="Chip image" class="chip-img" />
       <h2 v-if="cardInfo.cardNumber == 0"
       class="cardNumber"
-      :class="cardInfo.bank == '' || 'bitcoin-card' ? 'dark-text' : 'light-text'"
       >
         xxxx xxxx xxxx xxxx
       </h2>
       <h2 v-else class="cardNumber"
-      :class="cardInfo.bank == '' || 'bitcoin-card' ? 'dark-text' : 'light-text'"
       >{{ displayCardNumber }}</h2>
       <h3
-      :class="cardInfo.bank == '' || 'bitcoin-card' ? 'dark-text' : 'light-text'"
       >Cardholder Name</h3>
       <p v-if="cardInfo.name == 0"
-      :class="cardInfo.bank == '' || 'bitcoin-card' ? 'dark-text' : 'light-text'"
       >Firstname Lastname</p>
       <p v-else
-      :class="cardInfo.bank == '' || 'bitcoin-card' ? 'dark-text' : 'light-text'"
       >{{ cardInfo.name }}</p>
       <h3 class="rightInfo rightH3"
-      :class="cardInfo.bank == '' || 'bitcoin-card' ? 'dark-text' : 'light-text'"
       >Valid Thru</h3>
       <p class="rightInfo rightP"
-      :class="cardInfo.bank == '' || 'bitcoin-card' ? 'dark-text' : 'light-text'"
       >{{ cardInfo.month }}/{{ cardInfo.year }}</p>
     </article>
   </div>

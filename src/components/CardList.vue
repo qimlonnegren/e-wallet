@@ -1,9 +1,10 @@
 <template>
 <div>
-    <ul>
-        <li v-for="card in this.cards"
-        :key="card.cardNumber">
-
+    <ul v-if="cards">
+        <li v-for="card in cards"
+        :key="card.cardNumber"
+        @click="activateCard(card)">
+    
         <Card v-bind:cardInfo="card"/>
         </li>
     </ul>
@@ -18,7 +19,13 @@ export default {
     props: ['cards'],
     data(){return{
 
-    }}
+    }},
+    methods: {
+        activateCard(card){
+            //console.log(card)
+            this.$emit("clickedCard", card);
+        }
+    }
 }
 </script>
 
@@ -30,7 +37,7 @@ div {
 ul{
     padding: 10px 0 0 0;
     display: grid;
-    grid-auto-rows: 35px;
+    grid-auto-rows: 50px;
 }
 li{
     list-style-type: none;
