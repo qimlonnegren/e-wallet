@@ -50,9 +50,6 @@ export default {
       }
       return numbers;
     },
-    // changeTextColor() {
-
-    // }
   },
 };
 </script>
