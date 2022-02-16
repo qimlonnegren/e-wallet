@@ -124,6 +124,7 @@ export default {
   justify-content: space-between;
   column-gap: 10px;
   row-gap: 10px;
+  margin-top: 20px;
 }
 label {
   font-size: 12px;
@@ -161,7 +162,7 @@ button {
   font-size: large;
   text-transform: uppercase;
   height: 65px;
-  margin-top: 30px;
+  margin-top: 25px;
   cursor: pointer; 
 }
 
